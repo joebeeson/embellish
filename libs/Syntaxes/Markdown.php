@@ -1,14 +1,14 @@
 <?php
 
 	/**
-	 * Lingual_Syntaxes_Markdown
+	 * Embellish_Syntaxes_Markdown
 	 * Provides support for Markdown formatting via the PHP Markdown library by
 	 * Michel Fortin. 
 	 * @see http://michelf.com/projects/php-markdown/
 	 * @see http://daringfireball.net/projects/markdown/
 	 * @author Joe Beeson <jbeeson@gmail.com>
 	 */
-	class Lingual_Syntaxes_Markdown extends Lingual_Syntax {
+	class Embellish_Syntaxes_Markdown extends Embellish_Syntax {
 		
 		/**
 		 * Construction method. Ensures our needed libraries are present.
@@ -16,7 +16,7 @@
 		 * @access public
 		 */
 		public function __construct() {
-			if (!App::import('Vendors', 'Lingual.markdown')) {
+			if (!App::import('Vendors', 'Embellish.markdown')) {
 				throw new RuntimeException(
 					get_class($this).' could not load our Markdown vendor library'
 				);

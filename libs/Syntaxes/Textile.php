@@ -1,13 +1,13 @@
 <?php
 
 	/**
-	 * Lingual_Syntaxes_Markdown
+	 * Embellish_Syntaxes_Markdown
 	 * Provides support for Textile formatting via the Textile library by
 	 * Dean Allen.
 	 * @see http://thresholdstate.com/
 	 * @author Joe Beeson <jbeeson@gmail.com>
 	 */
-	class Lingual_Syntaxes_Textile extends Lingual_Syntax {
+	class Embellish_Syntaxes_Textile extends Embellish_Syntax {
 		
 		/**
 		 * Holds our Textile object
@@ -22,7 +22,7 @@
 		 * @access public
 		 */
 		public function __construct() {
-			if (!App::import('Vendors', 'Lingual.textile')) {
+			if (!App::import('Vendors', 'Embellish.textile')) {
 				throw new RuntimeException(
 					get_class($this).' could not load our Textile vendor library'
 				);

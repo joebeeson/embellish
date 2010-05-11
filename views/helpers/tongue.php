@@ -1,7 +1,7 @@
 <?php
 
 	// All of our syntaxes extend this file
-	require(App::pluginPath('lingual') . 'libs' . DS . 'Syntax.php');
+	require(App::pluginPath('Embellish') . 'libs' . DS . 'Syntax.php');
 
 	/**
 	 * TongueHelper
@@ -94,7 +94,7 @@
 		/**
 		 * Gets the requested $syntax and returns a newly created instance
 		 * @param string $syntax
-		 * @return Lingual_Syntax
+		 * @return Embellish_Syntax
 		 * @access protected
 		 */
 		protected function _getSyntax($syntax = '') {
@@ -138,7 +138,7 @@
 		 * @access protected
 		 */
 		protected function _syntaxDirectory() {
-			return App::pluginPath('lingual') . 'libs' . DS . 'Syntaxes' . DS;
+			return App::pluginPath('Embellish') . 'libs' . DS . 'Syntaxes' . DS;
 		}
 		
 		/**
@@ -148,7 +148,7 @@
 		 * @access protected
 		 */
 		protected function _syntaxClass($syntax = '') {
-			return 'Lingual_Syntaxes_' . $syntax;
+			return 'Embellish_Syntaxes_' . $syntax;
 		}
 		
 	}
