@@ -1,13 +1,13 @@
 <?php
 
 	/**
-	 * Lingual_Syntaxes_Bbcode
+	 * Embellish_Syntaxes_Bbcode
 	 * Provides support for BBcode formatting. We will try to use the BBCode
 	 * extension if it is installed otherwise we fall back to a regex solution.
 	 * @see http://en.wikipedia.org/wiki/BBCode
 	 * @author Joe Beeson <jbeeson@gmail.com>
 	 */
-	class Lingual_Syntaxes_Bbcode extends Lingual_Syntax {
+	class Embellish_Syntaxes_Bbcode extends Embellish_Syntax {
 		
 		/**
 		 * Converts our passed BBCode $string into HTML and returns it.

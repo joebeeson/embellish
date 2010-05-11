@@ -1,6 +1,6 @@
-# Lingual Plugin for CakePHP 1.3+
+# Embellish Plugin for CakePHP 1.3+
 
-Lingual plugin provides an easy way to parse various formatting languages into HTML
+Embellish plugin provides an easy way to parse various formatting languages into HTML
 
 ## Supported formats
 
@@ -12,13 +12,13 @@ Lingual plugin provides an easy way to parse various formatting languages into H
 
 * Download the plugin
 
-        $ cd /path/to/your/app/plugins && git clone git://github.com/joebeeson/lingual.git
+        $ cd /path/to/your/app/plugins && git clone git://github.com/joebeeson/embellish.git
 
 * Add the `TongueHelper` to your `AppController`
 
         public $helpers = array(
             // Replace 'Syntax' with your preferred format
-            'Lingual.Tongue' => 'Syntax'
+            'Embellish.Tongue' => 'Syntax'
         );
 
 ## Usage

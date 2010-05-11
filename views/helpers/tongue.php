@@ -1,24 +1,23 @@
 <?php
 
 	// All of our syntaxes extend this file
-	require(App::pluginPath('lingual') . 'libs' . DS . 'Syntax.php');
+	require(App::pluginPath('Embellish') . 'libs' . DS . 'Syntax.php');
 
 	/**
 	 * TongueHelper
 	 * Provides functionality for translating formatting syntax into HTML. You
 	 * set the syntax you're "speaking" with ::setSyntax('Name') and then you 
-	 * can use the ::toHtml()
+	 * can use the ::toHtml() method to echo it to the view.
 	 * @author Joe Beeson <jbeeson@gmail.com>
 	 */
 	class TongueHelper extends Object {
 		
 		/**
 		 * Heleprs
-		 * @var array
+		 * @var null
 		 * @access public
 		 */
-		public $helpers = array(
-		);
+		public $helpers;
 		
 		/**
 		 * The syntax object we're utilizing. This will be null until our
@@ -94,7 +93,7 @@
 		/**
 		 * Gets the requested $syntax and returns a newly created instance
 		 * @param string $syntax
-		 * @return Lingual_Syntax
+		 * @return Embellish_Syntax
 		 * @access protected
 		 */
 		protected function _getSyntax($syntax = '') {
@@ -138,7 +137,7 @@
 		 * @access protected
 		 */
 		protected function _syntaxDirectory() {
-			return App::pluginPath('lingual') . 'libs' . DS . 'Syntaxes' . DS;
+			return App::pluginPath('Embellish') . 'libs' . DS . 'Syntaxes' . DS;
 		}
 		
 		/**
@@ -148,7 +147,7 @@
 		 * @access protected
 		 */
 		protected function _syntaxClass($syntax = '') {
-			return 'Lingual_Syntaxes_' . $syntax;
+			return 'Embellish_Syntaxes_' . $syntax;
 		}
 		
 	}
