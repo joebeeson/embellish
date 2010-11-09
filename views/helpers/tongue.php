@@ -6,19 +6,19 @@
 	/**
 	 * TongueHelper
 	 * Provides functionality for translating formatting syntax into HTML. You
-	 * set the syntax you're "speaking" with ::setSyntax('Name') and then you 
+	 * set the syntax you're "speaking" with ::setSyntax('Name') and then you
 	 * can use the ::toHtml() method to echo it to the view.
 	 * @author Joe Beeson <jbeeson@gmail.com>
 	 */
 	class TongueHelper extends Object {
-		
+
 		/**
 		 * Heleprs
 		 * @var null
 		 * @access public
 		 */
 		public $helpers;
-		
+
 		/**
 		 * The syntax object we're utilizing. This will be null until our
 		 * setSyntax method is called.
@@ -26,7 +26,7 @@
 		 * @access protected
 		 */
 		protected $Syntax;
-		
+
 		/**
 		 * Construction method. If the user has selected a syntax we will go
 		 * ahead and run setSyntax() for them with it however if it cannot find
@@ -48,7 +48,7 @@
 				}
 			}
 		}
-		
+
 		/**
 		 * Since there's no reason for us to implement every single method that
 		 * our Syntax object might, we just pass anything we get right off to
@@ -62,19 +62,19 @@
 			if (method_exists($this->Syntax, $method)) {
 				return call_user_func_array(
 					array(
-						$this->Syntax, 
+						$this->Syntax,
 						$method
-					), 
+					),
 					$arguments
 				);
 			} else {
 				trigger_error(
-					'Call to undefined method '.get_class($this->Syntax).'::'.$method, 
+					'Call to undefined method '.get_class($this->Syntax).'::'.$method,
 					E_USER_ERROR
 				);
 			}
 		}
-		
+
 		/**
 		 * Sets the selected syntax. We return boolean to indicate the success
 		 * of the operation. Failures usually indicate an unsupported syntax.
@@ -89,7 +89,7 @@
 				$this->Syntax = $this->_getSyntax($syntax);
 			}
 		}
-		
+
 		/**
 		 * Gets the requested $syntax and returns a newly created instance
 		 * @param string $syntax
@@ -105,12 +105,12 @@
 				$className = $this->_syntaxClass($syntax);
 				if (!class_exists($className)) {
 					// The class hasn't been brought in yet, do so now...
-					require($this->_syntaxFile($syntax));
+					include($this->_syntaxFile($syntax));
 				}
 				return new $className;
 			}
 		}
-		
+
 		/**
 		 * Checks if the passed $syntax exists. Returns boolean to indicate.
 		 * @param string $syntax
@@ -120,7 +120,7 @@
 		protected function _syntaxExists($syntax = '') {
 			return file_exists($this->_syntaxFile($syntax));
 		}
-		
+
 		/**
 		 * Convenience method for getting our expected syntax file name
 		 * @param string $syntax
@@ -130,7 +130,7 @@
 		protected function _syntaxFile($syntax = '') {
 			return $this->_syntaxDirectory() . $syntax . '.php';
 		}
-		
+
 		/**
 		 * Convenience method for getting our syntax directory.
 		 * @return string
@@ -139,7 +139,7 @@
 		protected function _syntaxDirectory() {
 			return App::pluginPath('Embellish') . 'libs' . DS . 'Syntaxes' . DS;
 		}
-		
+
 		/**
 		 * Convenience method for returning our expected syntax class name
 		 * @param string $syntax
@@ -149,5 +149,5 @@
 		protected function _syntaxClass($syntax = '') {
 			return 'Embellish_Syntaxes_' . $syntax;
 		}
-		
+
 	}
